@@ -1,7 +1,7 @@
 
 Push-Swap est un projet développé en Go.
 
-L'objectif est de trier une liste d'entiers en utilisant deux piles (A et B) et des  des instructions limitées.
+L'objectif est de trier une liste d'entiers en utilisant deux piles (A et B) et des instructions limitées.
 
 Le programme `push-swap` doit générer une suite d'instructions permettant de trier la pile A avec un nombre d'opérations aussi faible que possible.
 

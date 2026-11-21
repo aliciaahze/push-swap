@@ -137,7 +137,7 @@ func TestPushA(t *testing.T) {
 	}
 }
 
-func TestPushBPileVide(t *testing.T) {
+func TestPushAQuandBVide(t *testing.T) {
 	piles := NewStacks([]int{4, 2})
 
 	PushA(&piles)
