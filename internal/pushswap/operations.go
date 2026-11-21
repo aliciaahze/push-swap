@@ -7,3 +7,38 @@ func SwapA(piles *Stacks) {
 
 	piles.A[0], piles.A[1] = piles.A[1], piles.A[0]
 }
+
+func SwapB(piles *Stacks) {
+	if len(piles.B) < 2 {
+		return
+	}
+
+	piles.B[0], piles.B[1] = piles.B[1], piles.B[0]
+}
+
+func SwapBoth(piles *Stacks) {
+	SwapA(piles)
+	SwapB(piles)
+}
+
+func PushB(piles *Stacks) {
+	if len(piles.A) == 0 {
+		return
+	}
+
+	premier := piles.A[0]
+	piles.A = piles.A[1:]
+	piles.B = append([]int{premier}, piles.B...)
+}
+
+func PushA(piles *Stacks) {
+	if len(piles.B) == 0 {
+		return
+	}
+
+	premier := piles.B[0]
+
+	piles.B = piles.B[1:]
+
+	piles.A = append([]int{premier}, piles.A...)
+}
