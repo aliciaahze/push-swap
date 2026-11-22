@@ -22,6 +22,11 @@ func main() {
 		nombres = append(nombres, nombre)
 	}
 
+	if pushswap.ContientDoublon(nombres) {
+		fmt.Fprintln(os.Stderr, "Error")
+		return
+	}
+
 	piles := pushswap.NewStacks(nombres)
 
 	fmt.Println("Pile A :", piles.A)
