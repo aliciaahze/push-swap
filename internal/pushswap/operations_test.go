@@ -82,14 +82,17 @@ func TestSwapBoth(t *testing.T) {
 func TestPushB(t *testing.T) {
 	piles := NewStacks([]int{9, 4, 2})
 	piles.B = []int{6, 1}
+
 	PushB(&piles)
+
 	if len(piles.A) != 2 {
-		t.Errorf("La pile A devrait contenir 2 éléments")
+		t.Fatalf("La pile A devrait contenir 2 éléments")
 	}
 
 	if len(piles.B) != 3 {
-		t.Errorf("La pile B devrait contenir 3 éléments")
+		t.Fatalf("La pile B devrait contenir 3 éléments")
 	}
+
 	if piles.A[0] != 4 || piles.A[1] != 2 {
 		t.Errorf("La pile A devrait contenir [4, 2]")
 	}
