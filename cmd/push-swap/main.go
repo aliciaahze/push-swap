@@ -24,6 +24,19 @@ func main() {
 
 	piles := pushswap.NewStacks(nombres)
 
-	fmt.Println("Pile A :", piles.A)
-	fmt.Println("Pile B :", piles.B)
+	if len(piles.A) == 2 {
+		pushswap.SwapA(&piles)
+		fmt.Println("sa")
+		return
+	}
+
+	if len(piles.A) == 3 {
+		instructions := pushswap.TrierTrois(&piles)
+
+		for _, instruction := range instructions {
+			fmt.Println(instruction)
+		}
+		return
+	}
+
 }
