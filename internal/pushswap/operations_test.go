@@ -7,12 +7,13 @@ func TestSwapA(t *testing.T) {
 
 	SwapA(&piles)
 
-	if piles.A[0] != 4 {
-		t.Errorf("Le premier élément devrait être 4")
+	if len(piles.A) != 4 {
+		t.Fatalf("La pile A devrait contenir 4 éléments")
 	}
 
-	if piles.A[1] != 10 {
-		t.Errorf("Le deuxième élément devrait être 10")
+	if piles.A[0] != 4 || piles.A[1] != 10 ||
+		piles.A[2] != 7 || piles.A[3] != 2 {
+		t.Errorf("La pile A devrait contenir [4, 10, 7, 2]")
 	}
 }
 
@@ -38,21 +39,24 @@ func TestSwapAPileVide(t *testing.T) {
 
 func TestSwapB(t *testing.T) {
 	piles := NewStacks([]int{10, 4})
-
 	piles.B = []int{6, 2, 9}
 
 	SwapB(&piles)
 
-	if piles.B[0] != 2 {
-		t.Errorf("Le premier élément de B devrait être 2")
+	if len(piles.B) != 3 {
+		t.Fatalf("La pile B devrait contenir 3 éléments")
 	}
 
-	if piles.B[1] != 6 {
-		t.Errorf("Le deuxième élément de B devrait être 6")
+	if len(piles.A) != 2 {
+		t.Fatalf("La pile A devrait contenir 2 éléments")
 	}
 
-	if piles.B[2] != 9 {
-		t.Errorf("Le troisième élément de B devrait rester 9")
+	if piles.B[0] != 2 || piles.B[1] != 6 || piles.B[2] != 9 {
+		t.Errorf("La pile B devrait contenir [2, 6, 9]")
+	}
+
+	if piles.A[0] != 10 || piles.A[1] != 4 {
+		t.Errorf("La pile A ne devrait pas changer")
 	}
 }
 
@@ -62,12 +66,16 @@ func TestSwapBoth(t *testing.T) {
 
 	SwapBoth(&piles)
 
-	if piles.A[0] != 3 || piles.A[1] != 8 {
-		t.Errorf("La pile A n'a pas été correctement échangée")
+	if len(piles.A) != 3 || len(piles.B) != 3 {
+		t.Fatalf("Les deux piles devraient contenir 3 éléments")
 	}
 
-	if piles.B[0] != 2 || piles.B[1] != 7 {
-		t.Errorf("La pile B n'a pas été correctement échangée")
+	if piles.A[0] != 3 || piles.A[1] != 8 || piles.A[2] != 5 {
+		t.Errorf("La pile A devrait contenir [3, 8, 5]")
+	}
+
+	if piles.B[0] != 2 || piles.B[1] != 7 || piles.B[2] != 1 {
+		t.Errorf("La pile B devrait contenir [2, 7, 1]")
 	}
 }
 
