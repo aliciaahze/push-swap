@@ -18,6 +18,10 @@ func main() {
 		os.Exit(1)
 	}
 
+	if pushswap.EstTriee(nombres) {
+		return
+	}
+
 	piles := pushswap.NewStacks(nombres)
 
 	fmt.Println("Pile A :", piles.A)
