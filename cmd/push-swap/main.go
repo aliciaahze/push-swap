@@ -3,28 +3,19 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
 
 	"github.com/aliciaahze/push-swap/internal/pushswap"
 )
 
 func main() {
-	nombres := []int{}
-
-	for _, texte := range os.Args[1:] {
-		nombre, err := strconv.Atoi(texte)
-
-		if err != nil {
-			fmt.Fprintln(os.Stderr, "Error")
-			return
-		}
-
-		nombres = append(nombres, nombre)
+	if len(os.Args) == 1 {
+		return
 	}
 
-	if pushswap.ContientDoublon(nombres) {
+	nombres, err := pushswap.LireNombres(os.Args[1:])
+	if err != nil {
 		fmt.Fprintln(os.Stderr, "Error")
-		return
+		os.Exit(1)
 	}
 
 	piles := pushswap.NewStacks(nombres)
