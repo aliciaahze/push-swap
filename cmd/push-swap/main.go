@@ -38,5 +38,9 @@ func main() {
 		}
 		return
 	}
+	instructions := pushswap.TrierRadix(&piles)
 
+	for _, instruction := range instructions {
+		fmt.Println(instruction)
+	}
 }
