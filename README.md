@@ -33,8 +33,7 @@ Le tri radix fonctionne en regardant les bits des nombres. J'ai aussi utilisé d
 Pour lancer push-swap : go run ./cmd/push-swap "3 2 1"
 
 Pour vérifier les instructions avec checker : go run ./cmd/push-swap "3 2 1" | go run ./cmd/checker "3 2 1"
-
-Vérifier les instructions avec Checker : go run ./cmd/push-swap "3 2 1" | go run ./cmd/checker "3 2 1" 
+ 
 
 ## Tests
 
