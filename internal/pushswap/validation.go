@@ -1,12 +1,14 @@
 package pushswap
 
 func ContientDoublon(nombres []int) bool {
-	for i := 0; i < len(nombres); i++ {
-		for j := i + 1; j < len(nombres); j++ {
-			if nombres[i] == nombres[j] {
-				return true
-			}
+	vus := make(map[int]bool)
+
+	for _, nombre := range nombres {
+		if vus[nombre] {
+			return true
 		}
+
+		vus[nombre] = true
 	}
 
 	return false
