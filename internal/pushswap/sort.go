@@ -45,6 +45,56 @@ func TrierTrois(piles *Stacks) []string {
 	return instructions
 }
 
+func IndiceMinimum(nombres []int) int {
+	indiceMin := 0
+
+	for i := 1; i < len(nombres); i++ {
+		if nombres[i] < nombres[indiceMin] {
+			indiceMin = i
+		}
+	}
+
+	return indiceMin
+}
+
+func TrierQuatreOuCinqNbs(piles *Stacks) []string {
+	instructions := []string{}
+
+	if EstTriee(piles.A) {
+		return instructions
+	}
+
+	for len(piles.A) > 3 {
+		indiceMin := IndiceMinimum(piles.A)
+
+		if indiceMin <= len(piles.A)/2 {
+			for i := 0; i < indiceMin; i++ {
+				RotateA(piles)
+				instructions = append(instructions, "ra")
+			}
+		} else {
+			rotations := len(piles.A) - indiceMin
+
+			for i := 0; i < rotations; i++ {
+				ReverseRotateA(piles)
+				instructions = append(instructions, "rra")
+			}
+		}
+
+		PushB(piles)
+		instructions = append(instructions, "pb")
+	}
+
+	instructions = append(instructions, TrierTrois(piles)...)
+
+	for len(piles.B) > 0 {
+		PushA(piles)
+		instructions = append(instructions, "pa")
+	}
+
+	return instructions
+}
+
 func ConvertirEnRangs(nombres []int) []int {
 	copie := append([]int{}, nombres...)
 	sort.Ints(copie)
