@@ -38,6 +38,16 @@ func main() {
 		}
 		return
 	}
+
+	if len(piles.A) == 4 || len(piles.A) == 5 {
+		instructions := pushswap.TrierQuatreOuCinqNbs(&piles)
+
+		for _, instruction := range instructions {
+			fmt.Println(instruction)
+		}
+		return
+	}
+
 	instructions := pushswap.TrierRadix(&piles)
 
 	for _, instruction := range instructions {
